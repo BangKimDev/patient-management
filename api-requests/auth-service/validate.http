@@ -1,0 +1,2 @@
+GET localhost:4004/auth/validate
+Authorization: Bearer {{token}}

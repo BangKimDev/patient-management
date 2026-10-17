@@ -1,0 +1,176 @@
+# ==============================================================================
+# Git Ignore Configuration for Patient Management System (Microservices)
+# Tech stack: Java, Spring Boot, Maven, Kafka, gRPC, API Gateway, AWS CDK / LocalStack
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. Java & Build Artifacts (Maven & Gradle)
+# ------------------------------------------------------------------------------
+target/
+**/target/
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+build/
+**/build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+out/
+**/out/
+bin/
+**/bin/
+
+*.class
+*.war
+*.ear
+*.nar
+*.rar
+
+# Maven Release & Metadata
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# ------------------------------------------------------------------------------
+# 2. Protobuf & gRPC Generated Sources
+# ------------------------------------------------------------------------------
+# Keep .proto definitions in src/main/proto, ignore generated Java/gRPC code
+**/generated-sources/
+**/generated-test-sources/
+*.proto.bin
+!**/src/main/proto/**/*.proto
+!**/src/test/proto/**/*.proto
+
+# ------------------------------------------------------------------------------
+# 3. AWS CDK & LocalStack Simulation Infrastructure
+# ------------------------------------------------------------------------------
+# AWS CDK synth & staging directories
+cdk.out/
+**/cdk.out/
+.cdk.staging/
+**/cdk.staging/
+cdk.context.json
+
+# LocalStack data & persistence
+.localstack/
+**/.localstack/
+localstack-data/
+localstack_data/
+
+# Downloaded AWS CLI installation files & binaries (prevent committing huge files)
+awscliv2.zip
+**/awscliv2.zip
+infrastructure/aws/
+infrastructure/awscliv2.zip
+
+# ------------------------------------------------------------------------------
+# 4. IDEs and Code Editors
+# ------------------------------------------------------------------------------
+# IntelliJ IDEA
+.idea/
+**/.idea/
+*.iml
+**/*.iml
+*.iws
+*.ipr
+*.ipr
+.idea_modules/
+
+# Eclipse / STS
+.apt_generated/
+.apt_generated_tests/
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache/
+
+# Visual Studio Code
+.vscode/
+**/.vscode/
+*.code-workspace
+.history/
+
+# NetBeans
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# ------------------------------------------------------------------------------
+# 5. Environment Variables, Secrets & Credentials
+# ------------------------------------------------------------------------------
+# Secrets & Environment configs
+.env
+.env.*
+!.env.example
+!.env.template
+
+# AWS Credentials (prevent accidental leak)
+aws-credentials/
+credentials
+credentials.json
+*.pem
+*.key
+*.p12
+*.pfx
+*.pkcs12
+
+# IntelliJ HTTP Client Private Variables
+http-client.env.json
+http-client.private.env.json
+
+# ------------------------------------------------------------------------------
+# 6. Runtime, Logs & Temporary Files
+# ------------------------------------------------------------------------------
+*.log
+logs/
+**/logs/
+*.pid
+*.seed
+*.pid.lock
+crash-*.log
+
+# Kafka / Zookeeper local mount directories
+kafka-data/
+zookeeper-data/
+
+# Embedded database files
+*.db
+*.sqlite
+*.sqlite3
+*.h2.db
+
+# ------------------------------------------------------------------------------
+# 7. Operating System Files
+# ------------------------------------------------------------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
